@@ -4,7 +4,8 @@
   "peerDependencies": {
     "@angular/common": "^19.2.0",
     "@angular/core": "^19.2.0",
-    "primeng": "^19.0.10"
+    "primeng": "^19.0.10",
+    "base-comp-lib": "file:../../dist/base-comp-lib"
   },
   "dependencies": {
     "tslib": "^2.8.1"

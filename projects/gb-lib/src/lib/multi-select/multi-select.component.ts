@@ -1,5 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {MultiSelectModule} from 'primeng/multiselect';
+import {MultiSelectBase} from 'base-comp-lib';
+
 
 @Component({
   selector: 'lib-multi-select',
@@ -7,13 +9,16 @@ import {MultiSelectModule} from 'primeng/multiselect';
   templateUrl: './multi-select.component.html',
   styleUrl: './multi-select.component.scss'
 })
-export class MultiSelectComponent<T>{
+export class MultiSelectComponent<T> extends MultiSelectBase{
 
   @Input()
   values: T[] = [];
 
   @Input()
-  name: string ='';
+  name: string = '';
 
+  constructor() {
+    super();
+  }
 
 }
