@@ -4,14 +4,16 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
+    "build": "ng rc",
+    "watch": "ng rc --watch --configuration development",
     "test": "ng test",
     "storybook": "ng run gb-lib:storybook",
     "build-storybook": "ng run gb-lib:build-storybook",
     "test-storybook": "test-storybook --url http://localhost:6006"
   },
-  "private": true,
+  "publishConfig": {
+    "registry": "https://github.com/JeanPOULET/libraries/"
+  },
   "dependencies": {
     "@angular/common": "^19.2.0",
     "@angular/compiler": "^19.2.0",
