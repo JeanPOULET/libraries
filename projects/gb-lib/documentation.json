@@ -1,0 +1,325 @@
+{
+    "pipes": [],
+    "interfaces": [
+        {
+            "name": "User",
+            "id": "interface-User-7c7962084eb58f9a9c024c0cad191a71e48756ea912689c662eb66891f49d83640ecaee281ad1ccae3185b99495ee24735b53027648e69289ee0f5fbcf752573",
+            "file": "projects/gb-lib/src/lib/multi-select/multi-select.stories.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import type { Meta, StoryObj } from '@storybook/angular';\r\nimport {expect, fn, userEvent, within} from '@storybook/test';\r\n\r\nimport { MultiSelectComponent } from './multi-select.component';\r\n\r\ninterface User{\r\n  name: string;\r\n}\r\n\r\n// More on how to set up stories at: https://storybook.js.org/docs/writing-stories\r\nconst meta: Meta<MultiSelectComponent<User>> = {\r\n  title: 'compo/Multiselect',\r\n  component: MultiSelectComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n  },\r\n};\r\n\r\nexport default meta;\r\ntype Story = StoryObj<MultiSelectComponent<User>>;\r\n\r\n// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args\r\nexport const WithFive: Story = {\r\n  args: {\r\n    name: '5'\r\n  },\r\n};\r\n\r\nexport const WithOne: Story = {\r\n  args: {\r\n    name: '1',\r\n    values: [\r\n      {\r\n        name:'Francis'\r\n      },      {\r\n        name:'Francois'\r\n      },      {\r\n        name:'Bastien'\r\n      },      {\r\n        name:'Damien'\r\n      },\r\n    ]\r\n  },\r\n};\r\n\r\nexport const WithTen: Story = {\r\n  args: {\r\n    name: '10'\r\n  },\r\n};\r\n",
+            "properties": [
+                {
+                    "name": "name",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 8
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": []
+        }
+    ],
+    "injectables": [],
+    "guards": [],
+    "interceptors": [],
+    "classes": [],
+    "directives": [],
+    "components": [],
+    "modules": [],
+    "miscellaneous": {
+        "variables": [
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gb-lib/src/lib/multi-select/multi-select.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<MultiSelectComponent<User>>",
+                "defaultValue": "{\r\n  title: 'compo/Multiselect',\r\n  component: MultiSelectComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n  },\r\n}"
+            },
+            {
+                "name": "preview",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gb-lib/.storybook/preview.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Preview",
+                "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n  },\n  decorators: [\n\n    applicationConfig({\n      providers: [\n        {\n          provide: APP_INITIALIZER,\n          useFactory: provideTheme,\n          deps: [PrimeNG],\n          multi: true,\n        },\n        provideAnimations(),\n        provideAnimationsAsync()\n      ]\n    })\n  ]\n}"
+            },
+            {
+                "name": "WithFive",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gb-lib/src/lib/multi-select/multi-select.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    name: '5'\r\n  },\r\n}"
+            },
+            {
+                "name": "WithOne",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gb-lib/src/lib/multi-select/multi-select.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    name: '1',\r\n    values: [\r\n      {\r\n        name:'Francis'\r\n      },      {\r\n        name:'Francois'\r\n      },      {\r\n        name:'Bastien'\r\n      },      {\r\n        name:'Damien'\r\n      },\r\n    ]\r\n  },\r\n}"
+            },
+            {
+                "name": "WithTen",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/gb-lib/src/lib/multi-select/multi-select.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    name: '10'\r\n  },\r\n}"
+            }
+        ],
+        "functions": [
+            {
+                "name": "provideTheme",
+                "file": "projects/gb-lib/.storybook/preview.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "args": [
+                    {
+                        "name": "config",
+                        "type": "PrimeNG",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "config",
+                        "type": "PrimeNG",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        ],
+        "typealiases": [
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<MultiSelectComponent<User>>",
+                "file": "projects/gb-lib/src/lib/multi-select/multi-select.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            }
+        ],
+        "enumerations": [],
+        "groupedVariables": {
+            "projects/gb-lib/src/lib/multi-select/multi-select.stories.ts": [
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gb-lib/src/lib/multi-select/multi-select.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<MultiSelectComponent<User>>",
+                    "defaultValue": "{\r\n  title: 'compo/Multiselect',\r\n  component: MultiSelectComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n  },\r\n}"
+                },
+                {
+                    "name": "WithFive",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gb-lib/src/lib/multi-select/multi-select.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    name: '5'\r\n  },\r\n}"
+                },
+                {
+                    "name": "WithOne",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gb-lib/src/lib/multi-select/multi-select.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    name: '1',\r\n    values: [\r\n      {\r\n        name:'Francis'\r\n      },      {\r\n        name:'Francois'\r\n      },      {\r\n        name:'Bastien'\r\n      },      {\r\n        name:'Damien'\r\n      },\r\n    ]\r\n  },\r\n}"
+                },
+                {
+                    "name": "WithTen",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gb-lib/src/lib/multi-select/multi-select.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    name: '10'\r\n  },\r\n}"
+                }
+            ],
+            "projects/gb-lib/.storybook/preview.ts": [
+                {
+                    "name": "preview",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/gb-lib/.storybook/preview.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Preview",
+                    "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n  },\n  decorators: [\n\n    applicationConfig({\n      providers: [\n        {\n          provide: APP_INITIALIZER,\n          useFactory: provideTheme,\n          deps: [PrimeNG],\n          multi: true,\n        },\n        provideAnimations(),\n        provideAnimationsAsync()\n      ]\n    })\n  ]\n}"
+                }
+            ]
+        },
+        "groupedFunctions": {
+            "projects/gb-lib/.storybook/preview.ts": [
+                {
+                    "name": "provideTheme",
+                    "file": "projects/gb-lib/.storybook/preview.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "config",
+                            "type": "PrimeNG",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "config",
+                            "type": "PrimeNG",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "groupedEnumerations": {},
+        "groupedTypeAliases": {
+            "projects/gb-lib/src/lib/multi-select/multi-select.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<MultiSelectComponent<User>>",
+                    "file": "projects/gb-lib/src/lib/multi-select/multi-select.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ]
+        }
+    },
+    "routes": [],
+    "coverage": {
+        "count": 0,
+        "status": "low",
+        "files": [
+            {
+                "filePath": "projects/gb-lib/.storybook/preview.ts",
+                "type": "function",
+                "linktype": "miscellaneous",
+                "linksubtype": "function",
+                "name": "provideTheme",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gb-lib/.storybook/preview.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "preview",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gb-lib/src/lib/multi-select/multi-select.stories.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "User",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gb-lib/src/lib/multi-select/multi-select.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gb-lib/src/lib/multi-select/multi-select.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithFive",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gb-lib/src/lib/multi-select/multi-select.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithOne",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gb-lib/src/lib/multi-select/multi-select.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithTen",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/gb-lib/src/lib/multi-select/multi-select.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            }
+        ]
+    }
+}

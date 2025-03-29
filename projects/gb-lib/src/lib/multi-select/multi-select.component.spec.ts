@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GbLibComponent } from './gb-lib.component';
+import { MultiSelectComponent } from './multi-select.component';
 
-describe('GbLibComponent', () => {
-  let component: GbLibComponent;
-  let fixture: ComponentFixture<GbLibComponent>;
+describe('MultiSelectComponent', () => {
+  let component: MultiSelectComponent;
+  let fixture: ComponentFixture<MultiSelectComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [GbLibComponent]
+      imports: [MultiSelectComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(GbLibComponent);
+    fixture = TestBed.createComponent(MultiSelectComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
