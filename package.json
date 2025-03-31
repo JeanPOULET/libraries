@@ -11,9 +11,6 @@
     "build-storybook": "ng run gb-lib:build-storybook",
     "test-storybook": "test-storybook --url http://localhost:6006"
   },
-  "publishConfig": {
-    "registry": "https://github.com/JeanPOULET/libraries/"
-  },
   "dependencies": {
     "@angular/common": "^19.2.0",
     "@angular/compiler": "^19.2.0",
@@ -22,12 +19,14 @@
     "@angular/platform-browser": "^19.2.0",
     "@angular/platform-browser-dynamic": "^19.2.0",
     "@angular/router": "^19.2.0",
-    "primeng": "^19.0.10",
+    "@ngx-translate/core": "^16.0.4",
+    "@ngx-translate/http-loader": "^16.0.1",
     "@primeng/themes": "^19.0.10",
+    "base-comp-lib": "file:../dist/base-comp-lib",
+    "primeng": "^19.0.10",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.15.0",
-    "base-comp-lib": "file:../dist/base-comp-lib"
+    "zone.js": "~0.15.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^19.2.5",

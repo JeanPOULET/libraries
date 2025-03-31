@@ -1,24 +1,20 @@
 import {Component, Input} from '@angular/core';
 import {MultiSelectModule} from 'primeng/multiselect';
-import {MultiSelectBase} from 'base-comp-lib';
+import {TranslatePipe} from '@ngx-translate/core';
 
 
 @Component({
   selector: 'lib-multi-select',
-  imports: [MultiSelectModule],
+  imports: [MultiSelectModule, TranslatePipe],
   templateUrl: './multi-select.component.html',
   styleUrl: './multi-select.component.scss'
 })
-export class MultiSelectComponent<T> extends MultiSelectBase{
+export class MultiSelectComponent<T>{
 
   @Input()
   values: T[] = [];
 
   @Input()
   name: string = '';
-
-  constructor() {
-    super();
-  }
 
 }
