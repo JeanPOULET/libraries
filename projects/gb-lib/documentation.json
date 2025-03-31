@@ -30,59 +30,7 @@
     "injectables": [],
     "guards": [],
     "interceptors": [],
-    "classes": [
-        {
-            "name": "NoTranslationHandler",
-            "id": "class-NoTranslationHandler-dd3b528fa1d2ec85f20801c4d80e1e5b4aedfc80eb5f6bcb3716b429d4583fecef6a58948f3f8f4bc866afbddc088852f4057fce0b24d29350243dade12666b9",
-            "file": "projects/gb-lib/.storybook/preview.ts",
-            "deprecated": false,
-            "deprecationMessage": "",
-            "type": "class",
-            "sourceCode": "import type { Preview } from '@storybook/angular'\nimport { setCompodocJson } from \"@storybook/addon-docs/angular\";\nimport docJson from \"../documentation.json\";\nimport {PrimeNG} from 'primeng/config';\nimport {APP_INITIALIZER, FactoryProvider, MissingTranslationStrategy} from '@angular/core';\nimport  Material from '@primeng/themes/material';\nimport {applicationConfig} from '@storybook/angular';\nimport {provideAnimationsAsync} from '@angular/platform-browser/animations/async';\nimport {provideAnimations} from '@angular/platform-browser/animations';\nimport {\n  MissingTranslationHandler,\n  MissingTranslationHandlerParams,\n  provideTranslateService,\n  TranslateLoader\n} from '@ngx-translate/core';\nimport {HttpClient} from '@angular/common/http';\nimport {TranslateHttpLoader} from '@ngx-translate/http-loader';\nimport {TranslateService, Translation} from '@ngx-translate/core/lib/translate.service';\nimport {Observable} from 'rxjs';\nimport {MissingTranslationHandlerParams} from '@ngx-translate/core/lib/missing-translation-handler';\nsetCompodocJson(docJson);\n\nfunction provideTheme(config: PrimeNG) {\n  return () => {\n    config.theme.set({\n      preset: Material,\n      options: {\n        darkModeSelector: '.my-app-dark'\n      }\n    });\n  };\n}\n\nfunction httpLoaderFactory(httpClient:HttpClient){\n  return new TranslateHttpLoader(httpClient, './trans/', '.json')\n}\n\nclass NoTranslationHandler extends MissingTranslationHandler{\n  override handle(params: MissingTranslationHandlerParams): Translation | Observable<Translation> {\n    return params.key;\n  }\n}\n\n// function missingTranslationHandler(params: MissingTranslationHandlerParams): Translation | Observable<Translation>{\n//   return params.key;\n// }\n\nconst preview: Preview = {\n  parameters: {\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n  },\n  decorators: [\n\n    applicationConfig({\n      providers: [\n        {\n          provide: APP_INITIALIZER,\n          useFactory: provideTheme,\n          deps: [PrimeNG],\n          multi: true,\n        },\n        provideAnimations(),\n        provideAnimationsAsync(),\n        provideTranslateService({\n          defaultLanguage: 'en',\n          missingTranslationHandler:{\n            provide: MissingTranslationHandler,\n            useClass: NoTranslationHandler\n          },\n          loader: {\n            provide: TranslateLoader,\n            useFactory: httpLoaderFactory,\n            deps: [HttpClient],\n          },\n        })\n      ]\n    })\n  ]\n};\n\n\nexport default preview;\n",
-            "inputsClass": [],
-            "outputsClass": [],
-            "properties": [],
-            "methods": [
-                {
-                    "name": "handle",
-                    "args": [
-                        {
-                            "name": "params",
-                            "type": "MissingTranslationHandlerParams",
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "Translation | Observable",
-                    "typeParameters": [],
-                    "line": 39,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "modifierKind": [
-                        164
-                    ],
-                    "jsdoctags": [
-                        {
-                            "name": "params",
-                            "type": "MissingTranslationHandlerParams",
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                }
-            ],
-            "indexSignatures": [],
-            "extends": [
-                "MissingTranslationHandler"
-            ],
-            "hostBindings": [],
-            "hostListeners": []
-        }
-    ],
+    "classes": [],
     "directives": [],
     "components": [],
     "modules": [],
@@ -106,7 +54,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Preview",
-                "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n  },\n  decorators: [\n\n    applicationConfig({\n      providers: [\n        {\n          provide: APP_INITIALIZER,\n          useFactory: provideTheme,\n          deps: [PrimeNG],\n          multi: true,\n        },\n        provideAnimations(),\n        provideAnimationsAsync(),\n        provideTranslateService({\n          defaultLanguage: 'en',\n          missingTranslationHandler:{\n            provide: MissingTranslationHandler,\n            useClass: NoTranslationHandler\n          },\n          loader: {\n            provide: TranslateLoader,\n            useFactory: httpLoaderFactory,\n            deps: [HttpClient],\n          },\n        })\n      ]\n    })\n  ]\n}"
+                "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n  },\n  decorators: [\n\n    applicationConfig({\n      providers: [\n        {\n          provide: APP_INITIALIZER,\n          useFactory: provideTheme,\n          deps: [PrimeNG],\n          multi: true,\n        },\n        provideAnimations(),\n        provideAnimationsAsync(),\n        provideTranslateService({\n          defaultLanguage: 'en',\n          missingTranslationHandler:{\n            provide: MissingTranslationHandler,\n            useFactory: missingTranslationHandler\n          },\n          loader: {\n            provide: TranslateLoader,\n            useFactory: httpLoaderFactory,\n            deps: [HttpClient],\n          },\n        })\n      ]\n    })\n  ]\n}"
             },
             {
                 "name": "WithFive",
@@ -160,6 +108,35 @@
                     {
                         "name": "httpClient",
                         "type": "HttpClient",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "missingTranslationHandler",
+                "file": "projects/gb-lib/.storybook/preview.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "args": [
+                    {
+                        "name": "params",
+                        "type": "MissingTranslationHandlerParams",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "returnType": "Translation | Observable",
+                "jsdoctags": [
+                    {
+                        "name": "params",
+                        "type": "MissingTranslationHandlerParams",
                         "deprecated": false,
                         "deprecationMessage": "",
                         "tagName": {
@@ -263,7 +240,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Preview",
-                    "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n  },\n  decorators: [\n\n    applicationConfig({\n      providers: [\n        {\n          provide: APP_INITIALIZER,\n          useFactory: provideTheme,\n          deps: [PrimeNG],\n          multi: true,\n        },\n        provideAnimations(),\n        provideAnimationsAsync(),\n        provideTranslateService({\n          defaultLanguage: 'en',\n          missingTranslationHandler:{\n            provide: MissingTranslationHandler,\n            useClass: NoTranslationHandler\n          },\n          loader: {\n            provide: TranslateLoader,\n            useFactory: httpLoaderFactory,\n            deps: [HttpClient],\n          },\n        })\n      ]\n    })\n  ]\n}"
+                    "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n  },\n  decorators: [\n\n    applicationConfig({\n      providers: [\n        {\n          provide: APP_INITIALIZER,\n          useFactory: provideTheme,\n          deps: [PrimeNG],\n          multi: true,\n        },\n        provideAnimations(),\n        provideAnimationsAsync(),\n        provideTranslateService({\n          defaultLanguage: 'en',\n          missingTranslationHandler:{\n            provide: MissingTranslationHandler,\n            useFactory: missingTranslationHandler\n          },\n          loader: {\n            provide: TranslateLoader,\n            useFactory: httpLoaderFactory,\n            deps: [HttpClient],\n          },\n        })\n      ]\n    })\n  ]\n}"
                 }
             ]
         },
@@ -289,6 +266,35 @@
                         {
                             "name": "httpClient",
                             "type": "HttpClient",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "missingTranslationHandler",
+                    "file": "projects/gb-lib/.storybook/preview.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "params",
+                            "type": "MissingTranslationHandlerParams",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "returnType": "Translation | Observable",
+                    "jsdoctags": [
+                        {
+                            "name": "params",
+                            "type": "MissingTranslationHandlerParams",
                             "deprecated": false,
                             "deprecationMessage": "",
                             "tagName": {
@@ -351,11 +357,12 @@
         "files": [
             {
                 "filePath": "projects/gb-lib/.storybook/preview.ts",
-                "type": "class",
-                "linktype": "classe",
-                "name": "NoTranslationHandler",
+                "type": "function",
+                "linktype": "miscellaneous",
+                "linksubtype": "function",
+                "name": "httpLoaderFactory",
                 "coveragePercent": 0,
-                "coverageCount": "0/2",
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
@@ -363,7 +370,7 @@
                 "type": "function",
                 "linktype": "miscellaneous",
                 "linksubtype": "function",
-                "name": "httpLoaderFactory",
+                "name": "missingTranslationHandler",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

@@ -37,6 +37,7 @@
         "storybook": {
           "builder": "@storybook/angular:start-storybook",
           "options": {
+            "assets": ["public/**"],
             "configDir": "projects/gb-lib/.storybook",
             "browserTarget": "gb-lib:build",
             "compodoc": true,

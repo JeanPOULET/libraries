@@ -7,12 +7,15 @@ import  Material from '@primeng/themes/material';
 import {applicationConfig} from '@storybook/angular';
 import {provideAnimationsAsync} from '@angular/platform-browser/animations/async';
 import {provideAnimations} from '@angular/platform-browser/animations';
-import {MissingTranslationHandler, provideTranslateService, TranslateLoader} from '@ngx-translate/core';
-import {HttpClient} from '@angular/common/http';
+import {
+  MissingTranslationHandler,
+  MissingTranslationHandlerParams,
+  provideTranslateService,
+  TranslateLoader, Translation
+} from '@ngx-translate/core';
+import {HttpClient, provideHttpClient} from '@angular/common/http';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import {TranslateService, Translation} from '@ngx-translate/core/lib/translate.service';
 import {Observable} from 'rxjs';
-import {MissingTranslationHandlerParams} from '@ngx-translate/core/lib/missing-translation-handler';
 setCompodocJson(docJson);
 
 function provideTheme(config: PrimeNG) {
@@ -27,12 +30,12 @@ function provideTheme(config: PrimeNG) {
 }
 
 function httpLoaderFactory(httpClient:HttpClient){
-  return new TranslateHttpLoader(httpClient, './trans/', '.json')
+  return new TranslateHttpLoader(httpClient, './public/i18n/', '.json')
 }
 
-function missingTranslationHandler(params: MissingTranslationHandlerParams): Translation | Observable<Translation>{
-  return params.key;
-}
+// function missingTranslationHandler(params: MissingTranslationHandlerParams): Translation | Observable<Translation>{
+//   return params.key;
+// }
 
 const preview: Preview = {
   parameters: {
@@ -53,14 +56,16 @@ const preview: Preview = {
           deps: [PrimeNG],
           multi: true,
         },
+        provideHttpClient(),
         provideAnimations(),
         provideAnimationsAsync(),
         provideTranslateService({
           defaultLanguage: 'en',
-          missingTranslationHandler:{
-            provide: MissingTranslationHandler,
-            useFactory: missingTranslationHandler
-          },
+          // missingTranslationHandler:{
+          //   provide: MissingTranslationHandler,
+          //   useFactory: missingTranslationHandler,
+          //   deps:[HttpClient]
+          // },
           loader: {
             provide: TranslateLoader,
             useFactory: httpLoaderFactory,
